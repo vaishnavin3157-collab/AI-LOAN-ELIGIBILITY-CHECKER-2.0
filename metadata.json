@@ -1,0 +1,6 @@
+{
+  "name": "AI Loan Eligibility Checker",
+  "description": "AI-powered Indian BFSI financial platform with loan eligibility scoring, CIBIL score analyzer, EMI calculator with amortization schedule, and smart financial tips in Indian Rupees (₹).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

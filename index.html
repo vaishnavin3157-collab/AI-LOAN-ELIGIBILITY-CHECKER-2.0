@@ -1,0 +1,1274 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Loan Eligibility Checker</title>
+    <meta name="description" content="AI-powered Indian BFSI financial platform with loan eligibility scoring, CIBIL score analyzer, EMI calculator with amortization schedule, and smart financial tips in Indian Rupees (₹)." />
+    <meta property="og:title" content="AI Loan Eligibility Checker" />
+    <meta property="og:description" content="AI-powered Indian BFSI financial platform with loan eligibility scoring, CIBIL score analyzer, EMI calculator with amortization schedule, and smart financial tips in Indian Rupees (₹)." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Ambient Floating Blurred Blobs -->
+    <div class="ambient-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Application Layout -->
+    <div class="app-layout">
+      
+      <!-- Top Navigation Bar (3-Zone Contract) -->
+      <header class="top-navbar">
+        <!-- Zone 1: Single text element wordmark -->
+        <a href="#hero" class="nav-brand" aria-label="AI Loan Eligibility Checker India">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Indian Rupee glyph icon -->
+              <path d="M6 3h12M6 8h12M6 13l7.5 8M6 8a4.5 4.5 0 0 0 9 0H6"/>
+            </svg>
+          </div>
+          <span>AI Loan Eligibility Checker</span>
+        </a>
+
+        <!-- Zone 2: Navigation Links / Tool Tabs -->
+        <nav class="nav-tabs" aria-label="Financial Tools Navigation">
+          <button type="button" class="nav-tab-btn active" data-tab="loan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Eligibility</span>
+          </button>
+          <button type="button" class="nav-tab-btn" data-tab="credit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+            <span>CIBIL Score</span>
+          </button>
+          <button type="button" class="nav-tab-btn" data-tab="emi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+            <span>EMI Calculator</span>
+          </button>
+          <button type="button" class="nav-tab-btn" data-tab="tips">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <span>Financial Tips</span>
+          </button>
+          <button type="button" class="nav-tab-btn" data-tab="history">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>History</span>
+          </button>
+        </nav>
+
+        <!-- Zone 3: Actions -->
+        <div class="nav-actions">
+          <button type="button" class="btn-icon-subtle" id="btnNavAppsScript" title="Google Apps Script Setup & Code (INR)" aria-label="Open Apps Script Guide">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </button>
+          <button type="button" class="btn-icon-subtle" id="btnNavSettings" title="API Keys & Storage Settings" aria-label="Open Settings">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span class="status-dot" id="navSettingsDot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main App Container -->
+      <main class="main-wrapper" id="hero">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-status-row">
+            <span class="status-indicator-pill">
+              <span class="status-dot-sm" id="heroAiStatusDot" style="background: #10b981;"></span>
+              <span id="heroAiStatusText">Claude API (claude-sonnet-4-5)</span>
+            </span>
+            <span aria-hidden="true">·</span>
+            <span class="status-indicator-pill">
+              <span class="status-dot-sm" id="heroStorageStatusDot" style="background: #06b6d4;"></span>
+              <span id="heroStorageStatusText">Storage Ready (INR)</span>
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Smart Loan Underwriting & <span>Financial Engine for India</span>
+          </h1>
+          <p class="hero-subtitle">
+            Assess loan approvals in Indian Rupees (₹), diagnose CIBIL credit profiles, model amortized EMIs under RBI lending norms, and plan wealth with Indian financial instruments.
+          </p>
+
+          <div class="hero-jump-pills">
+            <button type="button" class="jump-chip" data-tab="loan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Check Loan Eligibility (₹)</span>
+            </button>
+            <button type="button" class="jump-chip" data-tab="credit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+              <span>Analyze CIBIL Score</span>
+            </button>
+            <button type="button" class="jump-chip" data-tab="emi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
+              <span>Calculate Monthly EMI (₹)</span>
+            </button>
+            <button type="button" class="jump-chip" data-tab="tips">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Indian Financial Tips</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             PANEL 1: LOAN ELIGIBILITY CHECKER (INDIAN UNDERWRITING)
+             =================================================================== -->
+        <section class="glass-panel tool-panel active" id="panel-loan" aria-labelledby="heading-loan">
+          <div class="panel-header">
+            <div class="panel-header-info">
+              <h2 id="heading-loan">
+                <span>01. Loan Eligibility Underwriting (India)</span>
+              </h2>
+              <p>Evaluate your borrowing power, CIBIL eligibility, and FOIR (Fixed Obligation to Income Ratio) across Indian banks & NBFCs.</p>
+            </div>
+            <span class="badge-tag">Indian BFSI Engine</span>
+          </div>
+
+          <div class="tool-grid">
+            <!-- Left: Application Form -->
+            <form id="formLoanEligibility" class="form-container" novalidate>
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label class="form-label" for="loanFullName">Full Name *</label>
+                  <input type="text" id="loanFullName" class="form-control" placeholder="e.g. Rahul Sharma" value="Rahul Sharma" required />
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanAge">Age * <span class="helper-text">(18-75 Yrs)</span></label>
+                  <input type="number" id="loanAge" class="form-control" placeholder="32" value="32" min="18" max="75" required />
+                  <div class="invalid-feedback">Age must be between 18 and 75.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanEmployment">Employment Type *</label>
+                  <select id="loanEmployment" class="form-control" required>
+                    <option value="Salaried (Corporate / MNC)" selected>Salaried (Corporate / MNC)</option>
+                    <option value="Salaried (Govt / PSU)">Salaried (Govt / PSU)</option>
+                    <option value="Self-Employed Professional (Doctor/CA/Lawyer)">Self-Employed Professional (Doctor / CA / Lawyer)</option>
+                    <option value="Self-Employed Business / MSME Owner">Self-Employed Business / MSME Owner</option>
+                    <option value="Gig / Freelance Consultant">Freelance / Contractor</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanIncome">
+                    <span>Monthly Income (₹) *</span>
+                    <span id="loanIncomeWords" class="helper-text" style="color: var(--color-accent-teal);"></span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="loanIncome" class="form-control has-prefix" placeholder="75000" value="75000" min="5000" step="1000" required />
+                  </div>
+                  <div class="invalid-feedback">Monthly income must be greater than ₹0.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanEmis">Existing Monthly EMIs / Debts (₹)</label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="loanEmis" class="form-control has-prefix" placeholder="12000" value="12000" min="0" step="500" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanCreditScore">CIBIL Score * <span class="helper-text">(300-900)</span></label>
+                  <input type="number" id="loanCreditScore" class="form-control" placeholder="760" value="760" min="300" max="900" required />
+                  <div class="invalid-feedback">Enter a CIBIL score between 300 and 900.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanType">Loan Type *</label>
+                  <select id="loanType" class="form-control" required>
+                    <option value="Home Loan" selected>Home Loan (Repo-Linked)</option>
+                    <option value="Personal Loan">Personal Loan (Unsecured)</option>
+                    <option value="Auto / Car Loan">Auto / Car Loan</option>
+                    <option value="Education Loan">Education Loan (India / Abroad)</option>
+                    <option value="Gold Loan">Gold Loan</option>
+                    <option value="Business / MSME Loan">Business / MSME Loan</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanAmount">
+                    <span>Loan Amount (₹) *</span>
+                    <span id="loanAmountWords" class="helper-text" style="color: var(--color-accent-teal);"></span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="loanAmount" class="form-control has-prefix" placeholder="3500000" value="3500000" min="25000" step="25000" required />
+                  </div>
+                  <div class="invalid-feedback">Loan amount must be at least ₹25,000.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanTenure">Tenure (Years) * <span class="helper-text">(1-35)</span></label>
+                  <input type="number" id="loanTenure" class="form-control" placeholder="20" value="20" min="1" max="35" required />
+                  <div class="invalid-feedback">Tenure must be between 1 and 35 years.</div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="loanCity">City *</label>
+                  <input type="text" id="loanCity" class="form-control" placeholder="Mumbai, Maharashtra" value="Mumbai, Maharashtra" required />
+                  <div class="invalid-feedback">Please provide your city.</div>
+                </div>
+
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="btnSubmitLoan">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Evaluate Loan Eligibility (₹)</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Right: Results Card -->
+            <div class="result-card" id="resultLoanEligibility">
+              
+              <!-- Loading Overlay -->
+              <div class="loading-overlay" id="loadingLoanEligibility">
+                <div class="ai-pulse-spinner">
+                  <div class="pulse-ring"></div>
+                  <div class="pulse-ring-outer"></div>
+                </div>
+                <div class="loading-text">Analyzing Indian Lending Risk...</div>
+                <div class="loading-subtext">Evaluating FOIR ratio, CIBIL tiers, and bank underwriting benchmarks.</div>
+              </div>
+
+              <!-- Error State -->
+              <div class="error-banner" id="errorLoanEligibility">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <div class="error-content">
+                  <h4>Assessment Error</h4>
+                  <p id="errorLoanEligibilityMsg">Unable to evaluate loan eligibility.</p>
+                  <button type="button" class="btn-secondary" id="retryLoanEligibility">Retry Analysis</button>
+                </div>
+              </div>
+
+              <!-- Placeholder State -->
+              <div class="result-placeholder" id="placeholderLoanEligibility">
+                <div class="result-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h4>Awaiting Indian Profile Parameters</h4>
+                <p>Fill in your salary, existing obligations, and CIBIL score on the left to compute maximum eligibility and interest ranges in ₹.</p>
+              </div>
+
+              <!-- Active Results Content -->
+              <div id="contentLoanEligibility" style="display: none;">
+                
+                <div class="eligibility-summary-header">
+                  <!-- Circular SVG Score Ring -->
+                  <div class="score-ring-container">
+                    <svg class="score-ring-svg" viewBox="0 0 100 100">
+                      <defs>
+                        <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#6366f1" />
+                          <stop offset="50%" stop-color="#06b6d4" />
+                          <stop offset="100%" stop-color="#10b981" />
+                        </linearGradient>
+                      </defs>
+                      <circle class="score-ring-bg" cx="50" cy="50" r="45"></circle>
+                      <circle class="score-ring-progress" id="loanScoreCircle" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="score-center-text">
+                      <span class="score-number" id="loanResultScoreNum">86</span>
+                      <span class="score-label">Score / 100</span>
+                    </div>
+                  </div>
+
+                  <div class="eligibility-decision-box">
+                    <div class="decision-badge decision-approved" id="loanDecisionBadge">
+                      Eligible for Approval
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                      <span class="badge-tag" id="loanRiskBadge">LOW RISK</span>
+                      <span style="font-size: 0.75rem; color: var(--text-muted);">RBI & Bank Guidelines</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Meta Metrics -->
+                <div class="eligibility-meta-grid">
+                  <div class="meta-metric-card">
+                    <div class="meta-metric-label">Max Loan Eligibility (₹)</div>
+                    <div class="meta-metric-value" id="loanMaxAmountVal">₹48,00,000</div>
+                  </div>
+                  <div class="meta-metric-card">
+                    <div class="meta-metric-label">Suggested Interest Range</div>
+                    <div class="meta-metric-value" id="loanInterestVal">8.40% - 9.15% p.a.</div>
+                  </div>
+                  <div class="meta-metric-card">
+                    <div class="meta-metric-label">Estimated Monthly EMI (₹)</div>
+                    <div class="meta-metric-value" id="loanEstimatedEmiVal" style="color: var(--color-accent-teal);">₹41,480</div>
+                  </div>
+                  <div class="meta-metric-card">
+                    <div class="meta-metric-label">Estimated FOIR (Norm: &lt;50%)</div>
+                    <div class="meta-metric-value" id="loanFoirVal">38%</div>
+                  </div>
+                </div>
+
+                <!-- Strengths -->
+                <div class="result-list-section">
+                  <h5>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Key Profile Strengths</span>
+                  </h5>
+                  <ul class="styled-bullet-list" id="loanStrengthsList"></ul>
+                </div>
+
+                <!-- Risk Factors -->
+                <div class="result-list-section">
+                  <h5>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span>Risk Factors & Bottlenecks</span>
+                  </h5>
+                  <ul class="styled-bullet-list" id="loanRisksList"></ul>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="result-list-section">
+                  <h5>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#06b6d4" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>Bank Underwriting Recommendations</span>
+                  </h5>
+                  <ul class="styled-bullet-list" id="loanRecsList"></ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             PANEL 2: CREDIT SCORE ANALYZER (CIBIL-STYLE)
+             =================================================================== -->
+        <section class="glass-panel tool-panel" id="panel-credit" aria-labelledby="heading-credit">
+          <div class="panel-header">
+            <div class="panel-header-info">
+              <h2 id="heading-credit">
+                <span>02. CIBIL Score Diagnostics & Recovery Roadmap</span>
+              </h2>
+              <p>Analyze your TransUnion CIBIL credit profile across Indian bureau tiers (Poor &lt;550, Fair 550-649, Good 650-749, Excellent 750+).</p>
+            </div>
+            <span class="badge-tag">CIBIL Bureau Standards</span>
+          </div>
+
+          <div class="tool-grid">
+            <!-- Left: Inputs -->
+            <form id="formCreditScore" class="form-container" novalidate>
+              <div class="form-grid">
+                
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="csScoreInput">
+                    <span>CIBIL Score</span>
+                    <span class="helper-text">(300 to 900)</span>
+                  </label>
+                  <div class="slider-container">
+                    <input type="range" id="csScoreRange" class="custom-range" min="300" max="900" value="760" step="5" />
+                    <div class="slider-labels">
+                      <span>300 (Poor)</span>
+                      <span>550 (Fair)</span>
+                      <span>650 (Good)</span>
+                      <span>750+ (Excellent)</span>
+                      <span>900</span>
+                    </div>
+                  </div>
+                  <input type="number" id="csScoreInput" class="form-control" style="margin-top: 0.5rem;" min="300" max="900" value="760" required />
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="csPaymentHistory">
+                    <span>Payment History</span>
+                    <span class="helper-text">(On-time EMI / Credit Card %)</span>
+                  </label>
+                  <div class="slider-container">
+                    <input type="range" id="csPaymentHistoryRange" class="custom-range" min="50" max="100" value="98" step="1" />
+                  </div>
+                  <div class="input-wrapper" style="margin-top: 0.35rem;">
+                    <input type="number" id="csPaymentHistory" class="form-control" min="0" max="100" value="98" required />
+                    <span style="position: absolute; right: 0.85rem; color: var(--text-muted); font-size: 0.85rem;">%</span>
+                  </div>
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="csUtilization">
+                    <span>Credit Utilization Ratio</span>
+                    <span class="helper-text">(Target: &lt; 30% of card limit)</span>
+                  </label>
+                  <div class="slider-container">
+                    <input type="range" id="csUtilizationRange" class="custom-range" min="0" max="100" value="28" step="1" />
+                  </div>
+                  <div class="input-wrapper" style="margin-top: 0.35rem;">
+                    <input type="number" id="csUtilization" class="form-control" min="0" max="100" value="28" required />
+                    <span style="position: absolute; right: 0.85rem; color: var(--text-muted); font-size: 0.85rem;">%</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="csCreditAge">Average Credit Age <span class="helper-text">(Years)</span></label>
+                  <input type="number" id="csCreditAge" class="form-control" value="5.5" step="0.5" min="0" max="50" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="csActiveAccounts">Active Loans & Cards</label>
+                  <input type="number" id="csActiveAccounts" class="form-control" value="4" min="1" max="40" required />
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="csInquiries">Recent Hard Inquiries <span class="helper-text">(Past 6 months)</span></label>
+                  <input type="number" id="csInquiries" class="form-control" value="1" min="0" max="25" required />
+                </div>
+
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="btnAnalyzeCredit">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+                  <span>Analyze CIBIL Dimensions</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Right: Results Card -->
+            <div class="result-card" id="resultCreditScore">
+              
+              <!-- Loading Overlay -->
+              <div class="loading-overlay" id="loadingCreditScore">
+                <div class="ai-pulse-spinner">
+                  <div class="pulse-ring"></div>
+                  <div class="pulse-ring-outer"></div>
+                </div>
+                <div class="loading-text">Computing CIBIL Diagnostics...</div>
+                <div class="loading-subtext">Evaluating repayment discipline, credit utilization, and bureau inquiries under Indian banking criteria.</div>
+              </div>
+
+              <!-- Error State -->
+              <div class="error-banner" id="errorCreditScore">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <div class="error-content">
+                  <h4>Diagnostic Error</h4>
+                  <p id="errorCreditScoreMsg">Failed to generate CIBIL analysis.</p>
+                  <button type="button" class="btn-secondary" id="retryCreditScore">Retry Analysis</button>
+                </div>
+              </div>
+
+              <!-- Placeholder State -->
+              <div class="result-placeholder" id="placeholderCreditScore">
+                <div class="result-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+                </div>
+                <h4>Awaiting CIBIL Parameters</h4>
+                <p>Adjust your credit inputs on the left and submit to view the animated Indian credit gauge and 5-factor bureau breakdown.</p>
+              </div>
+
+              <!-- Active Content -->
+              <div id="contentCreditScore" style="display: none;">
+                
+                <!-- Semi-Circle Gauge SVG -->
+                <div class="gauge-wrapper">
+                  <svg class="gauge-svg" viewBox="0 0 300 170">
+                    <defs>
+                      <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#f43f5e" />
+                        <stop offset="30%" stop-color="#f59e0b" />
+                        <stop offset="65%" stop-color="#06b6d4" />
+                        <stop offset="100%" stop-color="#10b981" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 30 140 A 120 120 0 0 1 270 140" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="18" stroke-linecap="round" />
+                    <path d="M 30 140 A 120 120 0 0 1 270 140" fill="none" stroke="url(#gaugeGradient)" stroke-width="18" stroke-linecap="round" />
+                    <g id="csGaugeNeedle" class="gauge-needle">
+                      <line x1="150" y1="140" x2="150" y2="40" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                      <circle cx="150" cy="140" r="10" fill="#6366f1" stroke="#ffffff" stroke-width="2" />
+                    </g>
+                  </svg>
+                  <div class="gauge-score-display">
+                    <div class="gauge-score-val" id="csGaugeScoreVal">760</div>
+                    <div class="gauge-score-rating" id="csGaugeRatingText">EXCELLENT (750+)</div>
+                  </div>
+                </div>
+
+                <!-- 5 Factor Progress Bars -->
+                <div class="factor-bars-list">
+                  
+                  <div class="factor-row">
+                    <div class="factor-header">
+                      <span class="factor-title">Payment History (35% weight)</span>
+                      <span class="factor-score" id="factorPaymentHistoryScore">92%</span>
+                    </div>
+                    <div class="factor-progress-bg">
+                      <div class="factor-progress-fill" id="factorPaymentHistoryFill" style="width: 92%; background: #10b981;"></div>
+                    </div>
+                  </div>
+
+                  <div class="factor-row">
+                    <div class="factor-header">
+                      <span class="factor-title">Credit Utilization (30% weight)</span>
+                      <span class="factor-score" id="factorUtilizationScore">74%</span>
+                    </div>
+                    <div class="factor-progress-bg">
+                      <div class="factor-progress-fill" id="factorUtilizationFill" style="width: 74%; background: #06b6d4;"></div>
+                    </div>
+                  </div>
+
+                  <div class="factor-row">
+                    <div class="factor-header">
+                      <span class="factor-title">Credit History Vintage (15% weight)</span>
+                      <span class="factor-score" id="factorCreditAgeScore">70%</span>
+                    </div>
+                    <div class="factor-progress-bg">
+                      <div class="factor-progress-fill" id="factorCreditAgeFill" style="width: 70%; background: #06b6d4;"></div>
+                    </div>
+                  </div>
+
+                  <div class="factor-row">
+                    <div class="factor-header">
+                      <span class="factor-title">Credit Mix (Secured vs Unsecured - 10%)</span>
+                      <span class="factor-score" id="factorCreditMixScore">80%</span>
+                    </div>
+                    <div class="factor-progress-bg">
+                      <div class="factor-progress-fill" id="factorCreditMixFill" style="width: 80%; background: #10b981;"></div>
+                    </div>
+                  </div>
+
+                  <div class="factor-row">
+                    <div class="factor-header">
+                      <span class="factor-title">New Credit Inquiries (10% weight)</span>
+                      <span class="factor-score" id="factorInquiriesScore">88%</span>
+                    </div>
+                    <div class="factor-progress-bg">
+                      <div class="factor-progress-fill" id="factorInquiriesFill" style="width: 88%; background: #10b981;"></div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Identified Issues -->
+                <div class="result-list-section">
+                  <h5>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span>Identified Bureau Bottlenecks</span>
+                  </h5>
+                  <ul class="styled-bullet-list" id="csIssuesList"></ul>
+                </div>
+
+                <!-- Actionable Steps -->
+                <div class="result-list-section">
+                  <h5>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Actionable Steps for CIBIL Score Lift</span>
+                  </h5>
+                  <ul class="styled-bullet-list" id="csStepsList"></ul>
+                </div>
+
+                <!-- Timeline Box -->
+                <div class="meta-metric-card" style="margin-top: 1rem;">
+                  <div class="meta-metric-label">Estimated Improvement Timeline</div>
+                  <div class="meta-metric-value" id="csTimelineVal" style="font-size: 0.95rem; color: #38bdf8;">
+                    3 to 6 months for a 35 to 50 point CIBIL score enhancement
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             PANEL 3: EMI CALCULATOR & AMORTIZATION (INR / ₹)
+             =================================================================== -->
+        <section class="glass-panel tool-panel" id="panel-emi" aria-labelledby="heading-emi">
+          <div class="panel-header">
+            <div class="panel-header-info">
+              <h2 id="heading-emi">
+                <span>03. EMI Calculator & Amortization Engine (₹)</span>
+              </h2>
+              <p>Calculate monthly EMIs in Indian Rupees (₹), review year-wise amortization, and get AI insights based on RBI prepayment regulations.</p>
+            </div>
+            <span class="badge-tag">Mathematical Engine</span>
+          </div>
+
+          <div class="tool-grid">
+            <!-- Left: Sliders & Form Controls -->
+            <div class="form-container">
+              <div class="form-grid">
+                
+                <!-- Principal Amount -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="emiPrincipal">
+                    <span>Loan Principal Amount (₹)</span>
+                    <span id="emiPrincipalWords" class="helper-text" style="color: var(--color-accent-teal); font-weight: 600;">(₹35 Lakh)</span>
+                  </label>
+                  <div class="slider-container">
+                    <input type="range" id="emiPrincipalRange" class="custom-range" min="50000" max="50000000" step="50000" value="3500000" />
+                    <div class="slider-labels">
+                      <span>₹50k</span>
+                      <span>₹25 Lakh</span>
+                      <span>₹1 Crore</span>
+                      <span>₹2.5 Crore</span>
+                      <span>₹5 Crore</span>
+                    </div>
+                  </div>
+                  <div class="input-wrapper" style="margin-top: 0.35rem;">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="emiPrincipal" class="form-control has-prefix" min="10000" max="100000000" step="25000" value="3500000" />
+                  </div>
+                </div>
+
+                <!-- Interest Rate -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="emiRate">
+                    <span>Annual Interest Rate (% p.a.)</span>
+                    <span class="helper-text">Benchmark Repo / MCLR</span>
+                  </label>
+                  <div class="slider-container">
+                    <input type="range" id="emiRateRange" class="custom-range" min="6" max="24" step="0.05" value="8.5" />
+                    <div class="slider-labels">
+                      <span>6%</span>
+                      <span>8.5% (Home)</span>
+                      <span>12% (Auto)</span>
+                      <span>16% (Personal)</span>
+                      <span>24%</span>
+                    </div>
+                  </div>
+                  <div class="input-wrapper" style="margin-top: 0.35rem;">
+                    <input type="number" id="emiRate" class="form-control" min="1" max="36" step="0.05" value="8.5" />
+                    <span style="position: absolute; right: 0.85rem; color: var(--text-muted); font-size: 0.85rem;">% p.a.</span>
+                  </div>
+                </div>
+
+                <!-- Tenure -->
+                <div class="form-group col-span-2">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+                    <label class="form-label" for="emiTenure" style="margin-bottom: 0;">Loan Tenure</label>
+                    <select id="emiTenureUnit" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-sm); font-size: 0.75rem; padding: 0.2rem 0.5rem; cursor: pointer;">
+                      <option value="years" selected>Years</option>
+                      <option value="months">Months</option>
+                    </select>
+                  </div>
+                  <div class="slider-container">
+                    <input type="range" id="emiTenureRange" class="custom-range" min="1" max="30" step="1" value="20" />
+                    <div class="slider-labels">
+                      <span>1 Y</span>
+                      <span>10 Y</span>
+                      <span>20 Y</span>
+                      <span>25 Y</span>
+                      <span id="emiTenureMaxLabel">30 Y</span>
+                    </div>
+                  </div>
+                  <input type="number" id="emiTenure" class="form-control" style="margin-top: 0.35rem;" min="1" max="360" value="20" />
+                </div>
+
+              </div>
+
+              <!-- AI Suggestions Trigger Button -->
+              <div class="form-actions" style="margin-top: 1.5rem;">
+                <button type="button" class="btn-primary" id="btnGetEmiAiAdvice">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                  <span>Get AI Savings Suggestions (RBI Norms)</span>
+                </button>
+              </div>
+
+              <!-- AI Suggestions Content Box -->
+              <div class="ai-advice-card" id="emiAiAdviceDrawer" style="display: none;">
+                <div class="ai-advice-header">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Claude AI Indian Loan Optimization & Prepayment Strategy</span>
+                </div>
+                
+                <div class="loading-overlay" id="emiAiLoading" style="border-radius: var(--radius-lg);">
+                  <div class="ai-pulse-spinner" style="width: 36px; height: 36px;">
+                    <div class="pulse-ring"></div>
+                  </div>
+                  <div class="loading-text" style="font-size: 0.85rem;">Analyzing Prepayment & Tenure Impact...</div>
+                </div>
+
+                <div id="emiAiContent">
+                  <div class="result-list-section">
+                    <h5 style="color: #cbd5e1;">Tips to Reduce Cumulative Interest (₹)</h5>
+                    <ul class="styled-bullet-list" id="emiAiTipsList"></ul>
+                  </div>
+
+                  <div style="margin-top: 0.75rem; font-size: 0.8125rem;">
+                    <strong style="color: #a5b4fc;">Ideal Tenure:</strong>
+                    <span id="emiAiTenureVal" style="color: #cbd5e1; margin-left: 0.25rem;"></span>
+                  </div>
+
+                  <div style="margin-top: 0.5rem; font-size: 0.8125rem;">
+                    <strong style="color: #a5b4fc;">RBI Prepayment Advice:</strong>
+                    <span id="emiAiPrepaymentVal" style="color: #cbd5e1; margin-left: 0.25rem;"></span>
+                  </div>
+
+                  <div style="margin-top: 0.5rem; font-size: 0.8125rem;">
+                    <strong style="color: #a5b4fc;">Repo-Rate Insights:</strong>
+                    <span id="emiAiInsightsVal" style="color: #cbd5e1; margin-left: 0.25rem;"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right: Real-Time Results & Donut Chart -->
+            <div class="result-card">
+              
+              <!-- 3 Top Stats Grid (Formatted in ₹) -->
+              <div class="emi-stat-grid">
+                <div class="emi-stat-box">
+                  <div class="emi-stat-label">Monthly EMI (₹)</div>
+                  <div class="emi-stat-val primary" id="emiResultMonthly">₹30,374</div>
+                </div>
+                <div class="emi-stat-box">
+                  <div class="emi-stat-label">Total Interest (₹)</div>
+                  <div class="emi-stat-val" id="emiResultInterest">₹37,89,680</div>
+                </div>
+                <div class="emi-stat-box">
+                  <div class="emi-stat-label">Total Outflow (₹)</div>
+                  <div class="emi-stat-val" id="emiResultTotal">₹72,89,680</div>
+                </div>
+              </div>
+
+              <!-- SVG Donut Chart for Principal vs Interest -->
+              <div class="donut-chart-container">
+                <svg class="donut-svg" viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="45" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="20"></circle>
+                  <circle class="donut-segment" id="donutSegmentPrincipal" cx="60" cy="60" r="45" stroke="#6366f1"></circle>
+                  <circle class="donut-segment" id="donutSegmentInterest" cx="60" cy="60" r="45" stroke="#06b6d4"></circle>
+                </svg>
+
+                <div class="donut-legend">
+                  <div class="legend-item">
+                    <span class="legend-dot principal"></span>
+                    <div>
+                      <div style="font-size: 0.72rem; color: var(--text-muted);">Principal Borrowed</div>
+                      <strong id="donutPrincipalPct" style="font-family: var(--font-mono);">48% (₹35 Lakh)</strong>
+                    </div>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-dot interest"></span>
+                    <div>
+                      <div style="font-size: 0.72rem; color: var(--text-muted);">Total Interest Outflow</div>
+                      <strong id="donutInterestPct" style="font-family: var(--font-mono); color: var(--color-accent-teal);">52% (₹37.9 Lakh)</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Amortization Schedule Table (All in ₹) -->
+              <div class="amortization-section">
+                <div class="table-header-controls">
+                  <div style="font-size: 0.8125rem; font-weight: 600; color: #ffffff;">
+                    Amortization Schedule (INR ₹)
+                  </div>
+                  <div style="display: flex; gap: 0.25rem;">
+                    <button type="button" class="table-toggle-btn active" id="toggleAmortYearly">Year-by-Year</button>
+                    <button type="button" class="table-toggle-btn" id="toggleAmortMonthly">Month-by-Month</button>
+                  </div>
+                </div>
+
+                <div class="table-responsive-container">
+                  <table class="amortization-table">
+                    <thead>
+                      <tr>
+                        <th>Period</th>
+                        <th>Opening (₹)</th>
+                        <th>EMI Paid (₹)</th>
+                        <th>Principal (₹)</th>
+                        <th>Interest (₹)</th>
+                        <th>Closing (₹)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="amortizationTableBody">
+                      <!-- Filled dynamically by script.js with formatINR -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             PANEL 4: AI FINANCIAL TIPS (INDIAN CONTEXT & WEALTH INSTRUMENTS)
+             =================================================================== -->
+        <section class="glass-panel tool-panel" id="panel-tips" aria-labelledby="heading-tips">
+          <div class="panel-header">
+            <div class="panel-header-info">
+              <h2 id="heading-tips">
+                <span>04. Indian Wealth Strategy & 50/30/20 Budgeting</span>
+              </h2>
+              <p>Formulate customized cash-flow allocations, tax-saving goals, and portfolio roadmaps with PPF, NPS, ELSS, and Mutual Fund SIPs.</p>
+            </div>
+            <span class="badge-tag">Wealth Advisory</span>
+          </div>
+
+          <div class="tool-grid">
+            <!-- Left: Inputs -->
+            <form id="formFinancialTips" class="form-container" novalidate>
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label class="form-label" for="ftAge">Age *</label>
+                  <input type="number" id="ftAge" class="form-control" value="29" min="18" max="99" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="ftIncome">
+                    <span>Monthly Income (₹) *</span>
+                    <span id="ftIncomeWords" class="helper-text" style="color: var(--color-accent-teal);"></span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="ftIncome" class="form-control has-prefix" value="85000" min="5000" step="1000" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="ftExpenses">Monthly Living Expenses (₹) *</label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="ftExpenses" class="form-control has-prefix" value="45000" min="1000" step="500" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="ftSavings">Current Savings & Assets (₹)</label>
+                  <div class="input-wrapper">
+                    <span class="input-prefix">₹</span>
+                    <input type="number" id="ftSavings" class="form-control has-prefix" value="350000" min="0" step="5000" />
+                  </div>
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="ftGoal">Primary Financial Target</label>
+                  <select id="ftGoal" class="form-control">
+                    <option value="Home Down Payment" selected>Saving for Home Down Payment (₹25-30 Lakh in 3 Years)</option>
+                    <option value="Emergency Fund">Build 6-Month Liquid Emergency Reserve (High-Yield FDs/Liquid Funds)</option>
+                    <option value="Retirement & Long-Term Wealth">Long-Term Retirement Corpus (NPS / EPF / Equity SIPs)</option>
+                    <option value="Debt Acceleration">Accelerated Debt Freedom & Prepayment of High-Interest Loans</option>
+                    <option value="Child Higher Education">Child Higher Education Corpus (₹50 Lakh)</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="ftRisk">Risk Appetite / Investment Profile</label>
+                  <select id="ftRisk" class="form-control">
+                    <option value="Conservative">Conservative (Capital safety: Bank FDs, PPF, Govt Bonds)</option>
+                    <option value="Moderate" selected>Moderate (Balanced: Nifty 50 Index SIPs, Hybrid Funds, PPF)</option>
+                    <option value="Aggressive">Aggressive (High-growth: Midcap/Smallcap Equity SIPs, Sectoral Funds)</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary" id="btnGenerateTips">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Formulate Indian Financial Plan</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Right: Results Card -->
+            <div class="result-card" id="resultFinancialTips">
+              
+              <!-- Loading Overlay -->
+              <div class="loading-overlay" id="loadingFinancialTips">
+                <div class="ai-pulse-spinner">
+                  <div class="pulse-ring"></div>
+                  <div class="pulse-ring-outer"></div>
+                </div>
+                <div class="loading-text">Crafting Indian Wealth Strategy...</div>
+                <div class="loading-subtext">Synthesizing 50/30/20 budget allocations in ₹ and selecting optimal tax-saving instruments.</div>
+              </div>
+
+              <!-- Error State -->
+              <div class="error-banner" id="errorFinancialTips">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <div class="error-content">
+                  <h4>Planning Error</h4>
+                  <p id="errorFinancialTipsMsg">Failed to generate financial tips.</p>
+                  <button type="button" class="btn-secondary" id="retryFinancialTips">Retry Strategy</button>
+                </div>
+              </div>
+
+              <!-- Placeholder State -->
+              <div class="result-placeholder" id="placeholderFinancialTips">
+                <div class="result-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <h4>Awaiting Financial Goals</h4>
+                <p>Provide your monthly income and savings target on the left to receive customized advisory cards, 50/30/20 budgets in ₹, and suggested Indian instruments.</p>
+              </div>
+
+              <!-- Active Results Content -->
+              <div id="contentFinancialTips" style="display: none;">
+                
+                <!-- 50/30/20 Budget Bar Card (All in ₹) -->
+                <div class="budget-50-30-20-card">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <strong style="font-size: 0.85rem; color: #ffffff;">50/30/20 Budget Framework (₹)</strong>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">Indian Wealth Benchmark</span>
+                  </div>
+
+                  <div class="budget-bar-stacked">
+                    <div class="budget-segment-needs" style="width: 50%;"></div>
+                    <div class="budget-segment-wants" style="width: 30%;"></div>
+                    <div class="budget-segment-savings" style="width: 20%;"></div>
+                  </div>
+
+                  <div class="budget-legend-row">
+                    <div><span style="color: #6366f1;">■</span> Needs: <span id="ftBudgetNeedsVal" style="color: #ffffff; font-weight: 600;">₹42,500 (50%)</span></div>
+                    <div><span style="color: #06b6d4;">■</span> Wants: <span id="ftBudgetWantsVal" style="color: #ffffff; font-weight: 600;">₹25,500 (30%)</span></div>
+                    <div><span style="color: #10b981;">■</span> Savings: <span id="ftBudgetSavingsVal" style="color: #ffffff; font-weight: 600;">₹17,000 (20%)</span></div>
+                  </div>
+                </div>
+
+                <!-- Monthly Savings Target & Summary -->
+                <div class="meta-metric-card" style="margin-bottom: 1.25rem;">
+                  <div class="meta-metric-label">Target Monthly Savings Velocity (₹)</div>
+                  <div class="meta-metric-value" id="ftSavingsTargetVal" style="color: #34d399;">₹17,000 / month (₹2.04 Lakh annually)</div>
+                  <p id="ftMotivationalSummary" style="font-size: 0.8125rem; color: #cbd5e1; margin-top: 0.5rem; line-height: 1.5;"></p>
+                </div>
+
+                <!-- Suggested Indian Financial Instruments -->
+                <div class="instruments-wrapper">
+                  <div style="font-size: 0.8125rem; font-weight: 600; color: #ffffff;">
+                    Suggested Indian Investment Instruments
+                  </div>
+                  <div class="instruments-list" id="ftInstrumentsList"></div>
+                </div>
+
+                <!-- Tip Cards -->
+                <div style="font-size: 0.8125rem; font-weight: 600; color: #ffffff; margin-bottom: 0.65rem;">
+                  High-Impact Financial Action Items
+                </div>
+                <div class="tip-cards-grid" id="ftTipsCardsContainer"></div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             PANEL 5: SUBMISSION HISTORY & GOOGLE SHEETS (INR / ₹)
+             =================================================================== -->
+        <section class="glass-panel tool-panel" id="panel-history" aria-labelledby="heading-history">
+          <div class="panel-header">
+            <div class="panel-header-info">
+              <h2 id="heading-history">
+                <span>05. Assessment History & Database Sync (INR ₹)</span>
+              </h2>
+              <p>Review past assessments synced directly from Google Sheets or stored securely in your browser session. All figures formatted in Indian Rupees (₹).</p>
+            </div>
+            <span class="badge-tag">Dual Storage (INR)</span>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="history-controls-bar">
+            <!-- Filter Pills -->
+            <div class="history-filter-group" aria-label="Filter History by Tool">
+              <button type="button" class="history-filter-btn active" data-filter="all">All Records</button>
+              <button type="button" class="history-filter-btn" data-filter="loan">Eligibility</button>
+              <button type="button" class="history-filter-btn" data-filter="credit">CIBIL</button>
+              <button type="button" class="history-filter-btn" data-filter="emi">EMI</button>
+              <button type="button" class="history-filter-btn" data-filter="tips">Tips</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="history-actions-group">
+              <button type="button" class="btn-secondary" id="btnRefreshHistory">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                <span>Refresh</span>
+              </button>
+              <button type="button" class="btn-secondary" id="btnExportHistory">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Export CSV (₹)</span>
+              </button>
+              <button type="button" class="btn-secondary" id="btnClearHistory" style="color: #f43f5e;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                <span>Clear</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- History Table -->
+          <div class="history-table-container">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Timestamp (IST)</th>
+                  <th>Tool Used</th>
+                  <th>Applicant / Ref</th>
+                  <th>Summary Output (INR ₹)</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <!-- Filled dynamically by script.js with formatINR -->
+              </tbody>
+            </table>
+
+            <!-- Empty Notice -->
+            <div class="empty-history-notice" id="historyEmptyNotice">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <h4>No Submissions Yet</h4>
+              <p>Run any of the 4 tools above to generate financial assessments and log them automatically in INR.</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer & Disclaimer (INR) -->
+      <footer class="app-footer">
+        <div class="footer-content">
+          <p class="disclaimer-text">
+            <strong>Disclaimer:</strong> This tool provides AI-generated estimates in INR for educational purposes only and is not financial advice. Actual loan approval depends on the lender's policies.
+          </p>
+          <div class="footer-meta">
+            <span>Powered by Anthropic Claude API</span>
+            <span aria-hidden="true">·</span>
+            <span>Google Apps Script Sheets Sync (Currency: INR)</span>
+            <span aria-hidden="true">·</span>
+            <span>Client-Side Local Storage Privacy</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- ===================================================================
+         MODAL 1: SETTINGS (API Keys & Google Sheets URL)
+         =================================================================== -->
+    <div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-title" id="settingsModalTitle">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Platform Configuration</span>
+          </div>
+          <button type="button" class="modal-close-btn" id="closeSettingsModal" aria-label="Close Settings">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label" for="settingsClaudeApiKey">
+              <span>Anthropic Claude API Key</span>
+              <button type="button" id="btnToggleApiKeyVisibility" style="background:none; border:none; color:var(--color-accent-teal); font-size:0.75rem; cursor:pointer;">Show/Hide</button>
+            </label>
+            <input type="password" id="settingsClaudeApiKey" class="form-control" placeholder="sk-ant-api03-..." autocomplete="off" />
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem;">
+              Direct browser fetch with <code>anthropic-dangerous-direct-browser-access: true</code>. Stored locally in your browser only. Leave empty to use the built-in Indian BFSI demo engine.
+            </p>
+            <div style="margin-top: 0.5rem;">
+              <button type="button" class="btn-secondary" id="btnTestClaudeApi" style="font-size: 0.75rem; height: 32px;">Test Claude Key</button>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label" for="settingsSheetsUrl">
+              <span>Google Sheets Web App URL</span>
+              <span class="helper-text">(Currency: INR)</span>
+            </label>
+            <input type="url" id="settingsSheetsUrl" class="form-control" placeholder="https://script.google.com/macros/s/AKfycb.../exec" />
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem;">
+              Logs all assessments directly to your personal Google Sheet in INR. If left empty, submissions are stored in browser localStorage.
+            </p>
+            <div style="margin-top: 0.5rem;">
+              <button type="button" class="btn-secondary" id="btnTestSheets" style="font-size: 0.75rem; height: 32px;">Test Sheets URL</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Active Claude Model</label>
+            <input type="text" class="form-control" value="claude-sonnet-4-5" readonly style="opacity: 0.8;" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-primary" id="btnSaveSettings">Save Configuration</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 2: GOOGLE APPS SCRIPT GUIDE & CODE (INDIA / INR)
+         =================================================================== -->
+    <div class="modal-backdrop" id="appsScriptModal" role="dialog" aria-modal="true" aria-labelledby="appsScriptModalTitle">
+      <div class="modal-window" style="max-width: 720px;">
+        <div class="modal-header">
+          <div class="modal-title" id="appsScriptModalTitle">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Google Apps Script Setup & Backend Code (Currency: INR)</span>
+          </div>
+          <button type="button" class="modal-close-btn" id="closeAppsScriptModal" aria-label="Close Guide">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div style="font-size: 0.8125rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+            <strong>Setup Steps for Google Sheets (2 minutes):</strong>
+            <ol style="margin-left: 1.25rem; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li>Create a new spreadsheet at <a href="https://sheets.new" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-teal);">sheets.new</a> named <em>"AI Loan Eligibility Submissions (India)"</em>.</li>
+              <li>Go to <strong>Extensions &gt; Apps Script</strong>.</li>
+              <li>Replace <code>Code.gs</code> with the code below and click the Save icon.</li>
+              <li>Click <strong>Deploy &gt; New deployment</strong> &gt; Select type: <strong>Web app</strong>.</li>
+              <li>Set <strong>Execute as:</strong> <em>Me</em>, and <strong>Who has access:</strong> <em>Anyone</em>.</li>
+              <li>Authorize access, copy the <code>/exec</code> URL, and paste it into the app's Settings!</li>
+            </ol>
+          </div>
+
+          <div class="code-block-wrapper">
+            <div class="code-block-header">
+              <span>GoogleAppsScript.gs (India & INR Edition)</span>
+              <button type="button" class="copy-btn" id="btnCopyAppsScriptCode">Copy Code</button>
+            </div>
+            <pre class="code-block-pre" id="appsScriptCodePre">const SHEET_NAME = 'Submissions';
+
+function doGet(e) {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    let sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) sheet = setupSheet(ss);
+    
+    const data = sheet.getDataRange().getValues();
+    if (data.length &lt;= 1) return createJsonResponse({ status: 'success', currency: 'INR', records: [] });
+    
+    const records = [];
+    for (let i = 1; i &lt; data.length; i++) {
+      const row = data[i];
+      if (!row[0] &amp;&amp; !row[1]) continue;
+      let parsedPayload = {};
+      try { if (row[5]) parsedPayload = JSON.parse(row[5]); } catch (err) {}
+      records.push({
+        id: 'rec_' + i,
+        timestamp: row[0],
+        tool: row[1],
+        userName: row[2],
+        inputsSummary: row[3],
+        resultSummary: row[4],
+        payload: parsedPayload
+      });
+    }
+    records.reverse();
+    return createJsonResponse({ status: 'success', currency: 'INR', total: records.length, records: records });
+  } catch (err) {
+    return createJsonResponse({ status: 'error', message: err.toString() });
+  }
+}
+
+function doPost(e) {
+  try {
+    let payload = {};
+    if (e.postData &amp;&amp; e.postData.contents) {
+      try { payload = JSON.parse(e.postData.contents); } catch (err) { payload = e.parameter || {}; }
+    } else if (e.parameter) { payload = e.parameter; }
+    
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    let sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) sheet = setupSheet(ss);
+    
+    const timestamp = payload.timestamp || new Date().toISOString();
+    const tool = payload.tool || 'Unknown Tool';
+    const userName = payload.userName || payload.inputs?.fullName || 'Applicant';
+    const inputsSummary = typeof payload.inputs === 'object' 
+      ? Object.entries(payload.inputs).map(([k, v]) =&gt; k + ': ' + v).join(' | ') 
+      : String(payload.inputs || '');
+    const resultSummary = typeof payload.result === 'object' 
+      ? JSON.stringify(payload.result).substring(0, 150) 
+      : String(payload.result || '');
+    const fullJson = JSON.stringify(payload);
+    
+    sheet.appendRow([timestamp, tool, userName, inputsSummary, resultSummary, fullJson]);
+    return createJsonResponse({ status: 'success', currency: 'INR', message: 'Record saved to Google Sheets' });
+  } catch (err) {
+    return createJsonResponse({ status: 'error', message: err.toString() });
+  }
+}
+
+function setupSheet(ss) {
+  let sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
+  const headers = ['Timestamp (IST)', 'Tool Used', 'User / Ref', 'Input Parameters (INR ₹)', 'Result Summary (Currency: INR ₹)', 'Full Payload (JSON)'];
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+  const headerRange = sheet.getRange(1, 1, 1, headers.length);
+  headerRange.setBackground('#0b1329').setFontColor('#ffffff').setFontWeight('bold');
+  sheet.setFrozenRows(1);
+  return sheet;
+}
+
+function createJsonResponse(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}</pre>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="document.getElementById('appsScriptModal').classList.remove('active')">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 3: SUBMISSION DETAIL INSPECTOR (INR)
+         =================================================================== -->
+    <div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-title" id="detailModalTitle">
+            Submission Details (INR)
+          </div>
+          <button type="button" class="modal-close-btn" id="closeDetailModal" aria-label="Close Inspector">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; gap: 1rem;">
+            <div>Time (IST): <strong id="detailModalTime" style="color: #ffffff;"></strong></div>
+            <div>Subject: <strong id="detailModalUser" style="color: #ffffff;"></strong></div>
+          </div>
+
+          <div style="font-size: 0.8125rem; font-weight: 600; color: #ffffff; margin-bottom: 0.35rem;">Inputs</div>
+          <div class="code-block-wrapper">
+            <pre class="code-block-pre" id="detailModalInputsPre"></pre>
+          </div>
+
+          <div style="font-size: 0.8125rem; font-weight: 600; color: #ffffff; margin: 1rem 0 0.35rem;">Result Payload</div>
+          <div class="code-block-wrapper">
+            <pre class="code-block-pre" id="detailModalResultPre"></pre>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="document.getElementById('detailModal').classList.remove('active')">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Application Script -->
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
