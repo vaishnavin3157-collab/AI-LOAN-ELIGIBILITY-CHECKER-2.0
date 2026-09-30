@@ -1,4 +1,4 @@
-Write a complete, professional README.md for my GitHub repository "ai-loan-eligibility-checker".
+
 
 PROJECT DETAILS
 - Name: AI Loan Eligibility Checker
