@@ -35,3 +35,5 @@ RULES
 - Keep the tone professional, clear and beginner-friendly.
 - Use ₹ in all examples; never use $.
 - Output only the final README.md content inside one markdown code block, ready to copy and paste.
+
+Documentation: 
