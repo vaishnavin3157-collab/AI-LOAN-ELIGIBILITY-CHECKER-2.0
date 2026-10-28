@@ -1,5 +1,4 @@
 
-
 PROJECT DETAILS
 - Name: AI Loan Eligibility Checker
 - Description: An AI-powered BFSI (Banking, Financial Services & Insurance) web platform for Indian users that simplifies and speeds up personal financial decision-making. All amounts are in Indian Rupees (₹ INR) only.
